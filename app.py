@@ -40,7 +40,7 @@ with gr.Blocks(title="Deep Research") as ui:
 
 if __name__ == "__main__":
     ui.launch(
-        server_name="127.0.0.1",
+        server_name="0.0.0.0" if os.getenv("RENDER") == "true" else "127.0.0.1",
         server_port=int(os.getenv("PORT", "7860")),
         css=CSS,
         js=JS,

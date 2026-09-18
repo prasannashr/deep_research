@@ -97,6 +97,25 @@ When changing providers, set both `DEEP_RESEARCH_PROVIDER` and
 must support the structured outputs used by the planner and writer. Web search
 continues to use Serper regardless of the model provider.
 
+## Deploy on Render
+
+For the standalone `deep_research` repository, use a Python web service with:
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `python app.py`
+- Branch: `main`
+
+In the service's Environment settings, add `EXPLABS_API_KEY` and
+`SERPER_API_KEY`. Set `DEEP_RESEARCH_PROVIDER=explabs` and
+`DEEP_RESEARCH_MODEL=gpt-5.6-luna` if overriding existing values. Leave
+`DEEP_RESEARCH_SEND_EMAIL=false` unless report delivery is configured.
+Local shell variables and `.env` files are not automatically copied to Render.
+
+The app detects Render's `RENDER=true` environment variable and binds to
+`0.0.0.0`, using Render's `PORT`. Local runs continue to use `127.0.0.1`.
+Save the environment settings and deploy the latest commit. With automatic
+deploys enabled for the linked branch, future pushes trigger a deployment.
+
 ## Optional report delivery
 
 Reports are displayed locally by default. To enable delivery after report
