@@ -4,3 +4,5 @@ openai
 openai-agents
 gradio
 requests
+
+httpx

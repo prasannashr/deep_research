@@ -4,10 +4,13 @@ from research_manager import ResearchManager
 from styles import CSS, JS, EXAMPLES, HEADER_HTML
 import os
 
-load_dotenv(override=True)
+load_dotenv(override=False)
 
 
 async def run(query: str):
+    if not query.strip():
+        yield "Please enter a research question."
+        return
     async for status_update in ResearchManager().run(query):
         yield status_update
 
@@ -37,7 +40,7 @@ with gr.Blocks(title="Deep Research") as ui:
 
 if __name__ == "__main__":
     ui.launch(
-        server_name="0.0.0.0",
+        server_name="127.0.0.1",
         server_port=int(os.getenv("PORT", "7860")),
         css=CSS,
         js=JS,
