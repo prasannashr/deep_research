@@ -7,6 +7,8 @@ sdk_version: 6.14.0
 
 # Deep Research
 
+**[Try the live demo](https://deep-research-ogg4.onrender.com/)**
+
 Deep Research is a local web app that turns a research question into a written
 report with source links. Enter a topic, click **Investigate**, and the app plans
 several searches, collects web results, summarizes the findings, and combines
